@@ -1,0 +1,21 @@
+inherit_from:
+- .rubocop_airbnb.yml
+
+AllCops:
+  TargetRubyVersion: 2.5.1
+
+  Exclude:
+    - 'bin/**/*'
+    - 'db/schema.rb'
+    - 'db/migrate/*'
+    - 'vendor/**/*'
+    - 'lib/**/*'
+    - 'node_modules/**/*'
+Rails:
+  Enabled: true
+
+Bundler/OrderedGems:
+  Enabled: true
+
+Metrics/LineLength:
+  Max: 120
