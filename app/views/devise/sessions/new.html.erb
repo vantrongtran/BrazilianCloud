@@ -3,7 +3,6 @@
     <div class="login-form form form--border form--shadow">
       <h4 class="text-center">Well come to Brazilian Cloud! Please login to continue...</h4>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <%= render "shared/alert"%>
         <div class="form-group">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, class: "form-control" %>
