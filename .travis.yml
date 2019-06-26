@@ -1,0 +1,28 @@
+language: ruby
+cache: bundler
+bundler_args: "--without development"
+sudo: required
+dist: trusty
+rvm:
+  - 2.5.1
+services:
+  - mysql
+addons:
+  apt:
+    sources:
+      - mysql-5.7-trusty
+    packages:
+      - mysql-server
+env:
+  - DB=mysql
+  - RAILS_ENV=test
+script:
+  - bundle install
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rubocop
+  - bundle exec rspec
+before_script:
+  - mysql -e 'create database testdb'
+before_install:
+  - gem i rubygems-update -v '<3' && update_rubygems
+  - gem install bundler -v 1.17.1
