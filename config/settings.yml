@@ -1,0 +1,14 @@
+defaults: &defaults
+  app:
+    name: "BrazilianCloud"
+  validations:
+    email_regex: !ruby/regexp '/\A([\w\.%\+\-]+)@([\w.\-]+\.+[\w]{2,})\z/'
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
