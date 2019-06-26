@@ -1,0 +1,47 @@
+@import "variables";
+
+.header-wrapper {
+  .header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+
+    &__logo-wrapper {
+      padding: 0 1rem 0 1.3rem;
+      width: 240px;
+      min-width: 240px;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-right: 1px solid $color-athens-gray;
+    }
+
+    &__left-nav {
+      display: flex;
+      height: 100%;
+      align-items: center;
+
+      .toggle-side-menu {
+        font-size: 1.5rem;
+        color: $color-charade;
+        padding: 0 0.5rem;
+        &:hover {
+          cursor: pointer;
+          color: $color-cadet-blue;
+        }
+      }
+    }
+
+    &__right-nav {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      padding-left: 2rem;
+      margin: 0;
+      list-style-type: none;
+      margin-left: auto;
+      order: 2;
+    }
+  }
+}

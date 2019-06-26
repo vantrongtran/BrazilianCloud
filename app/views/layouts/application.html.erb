@@ -10,6 +10,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render partial: "layouts/header" %>
+    <div class="d-flex">
+      <%= render partial: "layouts/sidebar" %>
+      <%= yield %>
+    </div>
   </body>
 </html>
