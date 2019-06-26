@@ -1,0 +1,30 @@
+@import "variables";
+
+.form {
+  padding: 2rem 3rem;
+  &--border {
+    border: solid 1px $color-alto;
+    border-radius: 3px;
+  }
+
+  &--shadow {
+    -webkit-box-shadow: 2px 2px 5px -2px $color-shadow;
+    -moz-box-shadow: 2px 2px 5px -2px $color-shadow;
+    box-shadow: 2px 2px 5px -2px $color-shadow;
+  }
+
+  &--full-height {
+    height: 100vh;
+  }
+
+  &--centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__header {
+    text-align: center;
+    padding: 1rem 0;
+  }
+}

@@ -1,0 +1,26 @@
+.alert {
+  text-align: left;
+  &--error {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+  }
+
+  &--alert {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+  }
+
+  &--success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+  }
+
+  &--notice {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+  }
+}
