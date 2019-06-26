@@ -9,15 +9,7 @@
       </div>
     </div>
     <ul class="header__right-nav">
-      <li>
-        <a href="#" class="nav-link">Link</a>
-      </li>
-      <li>
-        <a href="#" class="nav-link">Link</a>
-      </li>
-      <li>
-        <a href="#" class="nav-link">Link</a>
-      </li>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
     </ul>
   </div>
 </div>
