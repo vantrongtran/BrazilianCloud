@@ -1,0 +1,20 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: <%= ENV["BRAZILIAN_CLOUD_DATABASE_HOST_NAME"] %>
+  port: <%= ENV["BRAZILIAN_CLOUD_DATABASE_PORT"] %>
+  username: <%= ENV["BRAZILIAN_CLOUD_DATABASE_USERNAME"] %>
+  password: <%= ENV["BRAZILIAN_CLOUD_DATABASE_PASSWORD"] %>
+
+development:
+  <<: *default
+  database: <%= ENV["BRAZILIAN_CLOUD_DATABASE_NAME"] %>
+
+test:
+  <<: *default
+  database: <%= ENV["BRAZILIAN_CLOUD_DATABASE_NAME"] %>
+
+production:
+  <<: *default
+  database: <%= ENV["BRAZILIAN_CLOUD_DATABASE_NAME"] %>
