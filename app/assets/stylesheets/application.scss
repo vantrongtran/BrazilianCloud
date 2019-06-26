@@ -15,14 +15,5 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font_awesome5_webfont";
 
-.page-container-wrapper {
-  background-color: #ffffff;
-  width: calc(100% - 240px);
-  min-height: calc(100vh - 70px);
-  box-sizing: border-box;
-  float: left;
-  border-top: 1px solid #f1f2f6;
-  padding: 1rem;
-  transition: width 0.4s;
-}
