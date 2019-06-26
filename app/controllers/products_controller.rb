@@ -18,10 +18,10 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      flash[:notice] = 'Created'
+      flash[:notice] = "Created"
       respond_with :edit, @product
     else
-      flash[:warning] = @user.errors.full_messages.uniq.join(', ')
+      flash[:error] = @product.errors.full_messages.uniq.join(", ")
       respond_with :new, :product
     end
   end
@@ -31,19 +31,19 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      flash[:notice] = 'Updated'
+      flash[:notice] = "Updated"
       respond_with :edit, @product
     else
-      flash[:warning] = @user.errors.full_messages.uniq.join(', ')
+      flash[:error] = @product.errors.full_messages.uniq.join(", ")
       respond_with :edit, @product
     end
   end
 
   def destroy
     if @product.destroy
-      flash[:notice] = 'Deleted'
+      flash[:notice] = "Deleted"
     else
-      flash[:warning] = 'Can not delete'
+      flash[:error] = "Can not delete"
     end
     redirect_to products_path
   end
