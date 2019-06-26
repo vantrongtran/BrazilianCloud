@@ -4,5 +4,5 @@ class Product < ApplicationRecord
 
   has_many :invoice_details
   has_many :invoices, through: :invoice_details
-  has_many :clients, through: :invoices
+  has_many :clients, -> { distinct }, through: :invoices
 end

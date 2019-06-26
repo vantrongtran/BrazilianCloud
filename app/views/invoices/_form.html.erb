@@ -1,0 +1,12 @@
+<%= f.hidden_field :client_id, value: client.id %>
+<%= f.fields_for :invoice_details do |ff| %>
+  <div class="form-group">
+    <%= ff.label "Product" %>
+    <%= ff.select :product_id, @products.collect { |p| [p.name, p.id] }, include_blank: false %>
+    <span class="help-block"><i>* Require</i><span>
+
+    <%= ff.label "Quantity" %>
+    <%= ff.number_field :quantity, class: "form-control", placeholder: "12", required: true %>
+    <span class="help-block"><i>* Require</i><span>
+  </div>
+<% end %>

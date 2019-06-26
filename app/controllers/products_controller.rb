@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   respond_to :html
 
-  before_action :load_product, only: %w(show edit update destroy)
+  before_action :load_product, only: %i(show edit update destroy)
 
   def index
     @products = Product.all.page(params[:page])

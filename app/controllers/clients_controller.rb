@@ -1,7 +1,7 @@
 class ClientsController < ApplicationController
   respond_to :html
 
-  before_action :load_client, only: %w(show edit update destroy)
+  before_action :load_client, only: %i(show edit update destroy)
 
   def index
     @clients = Client.all.page(params[:page])
@@ -9,6 +9,8 @@ class ClientsController < ApplicationController
 
   def show
     @invoices = @client.invoices.page(params[:page])
+    @invoice = Invoice.new(invoice_details: [InvoiceDetail.new])
+    @products = Product.all
   end
 
   def new

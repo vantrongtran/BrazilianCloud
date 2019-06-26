@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_26_073301) do
+ActiveRecord::Schema.define(version: 2019_06_26_140748) do
 
   create_table "clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -63,5 +63,4 @@ ActiveRecord::Schema.define(version: 2019_06_26_073301) do
 
   add_foreign_key "invoice_details", "invoices"
   add_foreign_key "invoice_details", "products"
-  add_foreign_key "invoices", "users", column: "client_id"
 end
