@@ -1,21 +1,17 @@
-<div class="panel panel-default panel--light">
+<div class="panel panel-default panel--light panel--md">
   <div class="panel-heading">
     <h3 class="panel-title">Create new product</h3>
   </div>
   <div class="panel-body">
     <%= form_for @product, url: products_path, role: :form do |f| %>
-      <div class="row">
-        <div class="col-xs-4">
-          <div class="box">
-            <div class="box-body">
-              <%= render partial: 'form', locals: { f: f } %>
-            </div>
+      <div class="box">
+        <div class="box-body">
+          <%= render partial: 'form', locals: { f: f } %>
+        </div>
 
-            <div class="box-footer">
-              <%= link_to 'Cancel', products_path, class: 'btn btn-danger' %>
-              <%= f.submit 'Add', class: "btn btn-success" %>
-            </div>
-          </div>
+        <div class="box-footer text-center">
+          <%= link_to 'Cancel', products_path, class: 'btn btn-danger' %>
+          <%= f.submit 'Add', class: "btn btn-success" %>
         </div>
       </div>
     <% end %>

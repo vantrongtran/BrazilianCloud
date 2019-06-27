@@ -36,7 +36,7 @@ class ClientsController < ApplicationController
       flash[:notice] = "Updated"
       respond_with :edit, @client
     else
-      flash[:error] = @user.errors.full_messages.uniq.join(", ")
+      flash[:error] = @client.errors.full_messages.uniq.join(", ")
       respond_with :edit, @client
     end
   end
