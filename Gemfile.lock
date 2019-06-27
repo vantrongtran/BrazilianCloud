@@ -155,7 +155,6 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.11.3)
     msgpack (1.3.0)
-    mysql2 (0.5.2)
     nio4r (2.3.1)
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
@@ -168,6 +167,7 @@ GEM
     pastel (0.7.3)
       equatable (~> 0.6)
       tty-color (~> 0.5)
+    pg (0.21.0)
     powerpack (0.1.2)
     pry (0.12.2)
       coderay (~> 1.1.0)
@@ -343,8 +343,8 @@ DEPENDENCIES
   jquery-rails
   kaminari
   listen (>= 3.0.5, < 3.2)
-  mysql2 (>= 0.4.4, < 0.6.0)
   paranoia (~> 2.2)
+  pg
   pry
   pry-byebug
   pry-rails

@@ -1,6 +1,6 @@
 default: &default
-  adapter: mysql2
-  encoding: utf8
+  adapter: postgresql
+  encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: <%= ENV["BRAZILIAN_CLOUD_DATABASE_HOST_NAME"] %>
   port: <%= ENV["BRAZILIAN_CLOUD_DATABASE_PORT"] %>
