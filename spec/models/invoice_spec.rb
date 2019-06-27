@@ -7,6 +7,34 @@ RSpec.describe Invoice, type: :model do
     it { is_expected.to have_many(:products).through(:invoice_details) }
   end
 
+  describe "accepts nested attributes" do
+    it { is_expected.to accept_nested_attributes_for(:invoice_details).allow_destroy(true) }
+  end
+
+  describe "#product_count" do
+    subject { invoice.product_count }
+
+    let(:invoice) { create :invoice }
+
+    context "with 1 invoice detail" do
+      before { create :invoice_detail, invoice: invoice, quantity: 1 }
+
+      it { is_expected.to eq 1 }
+    end
+
+    context "with many detail with quantity 1" do
+      before { create_list :invoice_detail, 10, invoice: invoice, quantity: 1 }
+
+      it { is_expected.to eq 10 }
+    end
+
+    context "with many detail with quantity 20" do
+      before { create_list :invoice_detail, 10, invoice: invoice, quantity: 20 }
+
+      it { is_expected.to eq 200 }
+    end
+  end
+
   describe "#total_price" do
     subject { invoice.total_price }
 

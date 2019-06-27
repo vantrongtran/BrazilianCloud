@@ -1,8 +1,12 @@
 class InvoicesController < ApplicationController
-  before_action :load_invoice, only: %i(show destroy)
+  before_action :load_invoice, only: %i(show edit update destroy)
 
   def show
     @invoice_details = @invoice.invoice_details
+  end
+
+  def edit
+    @products = Product.all
   end
 
   def create
@@ -23,6 +27,11 @@ class InvoicesController < ApplicationController
     redirect_to client_path(@invoice.client_id)
   end
 
+  def update
+    @invoice.update!(invoice_params)
+    redirect_to client_path(@invoice.client_id), flash: { notice: "Updated" }
+  end
+
   private
 
   def load_invoice
@@ -30,6 +39,12 @@ class InvoicesController < ApplicationController
   end
 
   def invoice_params
-    params.require(:invoice).permit(:client_id, invoice_details_attributes: [:product_id, :quantity])
+    params.require(:invoice).permit(:client_id, invoice_details_params)
+  end
+
+  def invoice_details_params
+    { invoice_details_attributes: [:product_id, :quantity] }.tap do |attr|
+      attr[:invoice_details_attributes].push(:id, :_destroy) if @invoice&.persisted?
+    end
   end
 end

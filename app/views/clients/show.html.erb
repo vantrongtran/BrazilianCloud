@@ -1,27 +1,49 @@
-<div class="panel panel-default panel--light">
-  <div class="panel-heading">
-    <h3 class="panel-title"><%= @client.name %></h3>
-  </div>
-  <div class="panel-body">
-    <h3>Invoice list</h3>
-    <%= render partial: "invoices/invoices",  locals: { invoices: @invoices } %>
-
-    <h3>Create new invoice</h3>
-    <%= form_for @invoice, url: invoices_path, role: :form do |f| %>
-      <div class="row">
-        <div class="col-xs-4">
-          <div class="box">
-            <div class="box-body">
-              <%= render partial: 'invoices/form', locals: { f: f, client: @client } %>
-            </div>
-
-            <div class="box-footer">
-              <%= link_to 'Cancel', client_path(@client), class: 'btn btn-danger' %>
-              <%= f.submit 'Add', class: "btn btn-success" %>
+<div class="row">
+  <div class="col-lg-4">
+    <div class="panel panel-default panel--light">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= @client.name %></h3>
+      </div>
+      <div class="panel-body">
+        <div class="client-info">
+          <h4><span class="label label-default">Information</span></h4>
+          <div class="well">
+            <div class="row">
+              <div class="col-xs-3"><b>Email:</b></div>
+              <div class="col-xs-9"><%= @client.email %></div>
+              <div class="col-xs-3"><b>Address:</b></div>
+              <div class="col-xs-9"><%= @client.address %></div>
             </div>
           </div>
         </div>
+        <hr>
+        <div class="new-invoce">
+          <h4><span class="label label-primary">Add invoice</span></h4>
+          <%= form_for @invoice, url: invoices_path, role: :form, class: "form-horizontal" do |f| %>
+            <div class="box">
+              <div class="box-body invoice-details-list">
+                <%= render partial: 'invoices/form', locals: { f: f, client: @client } %>
+              </div>
+
+              <div class="box-footer text-right col-xs-12">
+                <%= link_to 'Cancel', client_path(@client), class: 'btn btn-danger' %>
+                <%= f.submit 'Add', class: "btn btn-success" %>
+              </div>
+
+            </div>
+          <% end %>
+        </div>
       </div>
-    <% end %>
+    </div>
+  </div>
+  <div class="col-lg-8">
+    <div class="panel panel-default panel--light">
+      <div class="panel-heading">
+        <h3 class="panel-title">Invoice List</h3>
+      </div>
+      <div class="panel-body">
+        <%= render partial: "invoices/invoices",  locals: { invoices: @invoices } %>
+      </div>
+    </div>
   </div>
 </div>

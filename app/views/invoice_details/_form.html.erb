@@ -1,0 +1,18 @@
+
+<div class="form form--info">
+  <button type="button" class="close remove_nested_fields"><span aria-hidden="true">&times;</span></button>
+  <div class="nested_field_element">
+    <div class="form-group ">
+      <%= f.hidden_field :_destroy, value: 0, id: "_destroy" %>
+      <%= f.label "Product" %>
+      <%= f.select :product_id, @products.collect { |p| [p.name, p.id] }, { selected: f.object.product_id }, { class: "form-control" } %>
+      <span class="help-block"><i>* Require</i><span>
+    </div>
+
+    <div>
+      <%= f.label "Quantity" %>
+      <%= f.number_field :quantity, class: "form-control", placeholder: "12", required: true %>
+      <span class="help-block"><i>* Require</i><span>
+    </div>
+  </div>
+</div>

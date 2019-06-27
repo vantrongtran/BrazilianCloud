@@ -5,13 +5,32 @@
     .panel-heading {
       border-bottom: #fff;
       background-color: #fff;
-      padding-top: 2.5rem;
+      padding: 2rem 3rem 0 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
     .panel-title {
       text-transform: uppercase;
       font-weight: bold;
       letter-spacing: 1px;
       font-size: 2rem;
+    }
+    .panel-body {
+      padding: 2rem 3rem;
+    }
+  }
+
+  &--md {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 992px) {
+  .panel {
+    &--md {
+      width: 100%;
     }
   }
 }
